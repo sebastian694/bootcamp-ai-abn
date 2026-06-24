@@ -281,6 +281,85 @@
       color: #ccc;
     }
 
+    /* ── TEMARIO ── */
+    .temario-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .temario-tab {
+      padding: 10px 24px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      background: white;
+      color: var(--gray-600);
+      transition: all 0.2s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .temario-tab.active {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+    .temario-panel { display: none; }
+    .temario-panel.active { display: block; }
+    .temario-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .temario-card {
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 24px;
+      background: white;
+    }
+    .temario-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .temario-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .temario-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .temario-bullets li {
+      font-size: 13px;
+      color: var(--gray-600);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .temario-bullets li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 700;
+    }
+    .temario-capstone {
+      grid-column: 1 / -1;
+      border-color: var(--teal);
+      background: linear-gradient(135deg, #f0fdf8 0%, white 100%);
+    }
+
     /* ── POR QUÉ ── */
     .why-grid {
       display: grid;
@@ -510,8 +589,8 @@
       justify-content: space-between;
       align-items: center;
     }
-    .footer-logo { height: 20px; opacity: 0.6; }
-    .footer-text { font-size: 13px; color: #bbb; }
+    .footer-logo { height: 20px; opacity: 0.45; }
+    .footer-text { font-size: 13px; color: #aaa; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -536,7 +615,7 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <img class="nav-logo" src="assets/abn-group-logo.png" alt="ABN Group" />
+    <img class="nav-logo" src="assets/abn-group-02.png" alt="ABN Group" />
     <div class="nav-right">
       <a href="#programa" class="nav-link">El programa</a>
       <a href="#beneficios" class="nav-link">Beneficios</a>
@@ -553,7 +632,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img class="hero-isotipo" src="assets/abn-isotipo-negro.png" alt="" />
+    <img class="hero-isotipo" src="assets/abn-iso-02.png" alt="" />
     <div class="hero-eyebrow">
       <div class="hero-dot"></div>
       Primera cohorte · Agosto 2026 · Buenos Aires
@@ -695,6 +774,257 @@
       </div>
     </div>
   </section>
+
+  <!-- TEMARIO -->
+  <section class="section" id="temario">
+    <div class="container">
+      <div class="eyebrow">Contenido del programa</div>
+      <h2 class="section-title">12 sesiones. Sin relleno.</h2>
+      <p class="section-sub">Cada clase está diseñada para que el lunes siguiente ya lo estés aplicando.</p>
+
+      <div class="temario-tabs">
+        <button class="temario-tab active" onclick="switchTab('basico')">AI Foundations</button>
+        <button class="temario-tab" onclick="switchTab('avanzado')">AI Advanced</button>
+      </div>
+
+      <!-- BÁSICO -->
+      <div class="temario-panel active" id="panel-basico">
+        <div class="temario-grid">
+          <div class="temario-card">
+            <div class="temario-num">Sesión 01</div>
+            <div class="temario-title">La IA que ya existe: desmitificando la inteligencia artificial</div>
+            <ul class="temario-bullets">
+              <li>Qué es realmente la IA, el Machine Learning y la IA generativa (sin tecnicismos)</li>
+              <li>Por qué 2026 es un punto de inflexión para los negocios</li>
+              <li>Mapa del ecosistema: herramientas, players globales y el contexto LATAM</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 02</div>
+            <div class="temario-title">Cómo piensan las IAs: modelos de lenguaje y generación</div>
+            <ul class="temario-bullets">
+              <li>Cómo funcionan los LLMs internamente (explicado para ejecutivos)</li>
+              <li>Entender las limitaciones: alucinaciones, sesgos, contexto</li>
+              <li>ChatGPT vs. Claude vs. Gemini vs. Copilot: cuándo usar cada uno</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 03</div>
+            <div class="temario-title">Prompt Engineering: el arte de hablar con la IA</div>
+            <ul class="temario-bullets">
+              <li>Anatomía de un prompt efectivo: rol, contexto, instrucción, formato</li>
+              <li>Técnicas avanzadas: chain-of-thought, few-shot prompting, iteración</li>
+              <li>Taller práctico: prompts aplicados a tu industria</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 04</div>
+            <div class="temario-title">IA para productividad ejecutiva</div>
+            <ul class="temario-bullets">
+              <li>Asistentes de IA en el día a día: email, reuniones, reportes, presentaciones</li>
+              <li>Microsoft 365 Copilot y Google Workspace AI en práctica</li>
+              <li>Construir tu flujo de trabajo personal asistido por IA</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 05</div>
+            <div class="temario-title">IA generativa aplicada: texto, imágenes y contenido</div>
+            <ul class="temario-bullets">
+              <li>Creación de contenido con IA: copywriting, documentación, propuestas</li>
+              <li>Generación de imágenes y recursos visuales (Midjourney, DALL-E, Firefly)</li>
+              <li>Video e audio con IA: tendencias y casos de uso empresarial</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 06</div>
+            <div class="temario-title">IA en marketing y ventas</div>
+            <ul class="temario-bullets">
+              <li>Personalización a escala: segmentación, campañas y customer journeys</li>
+              <li>IA para prospección, CRM y automatización de ventas</li>
+              <li>Casos reales: empresas argentinas y regionales que ya lo aplican</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 07</div>
+            <div class="temario-title">IA en operaciones y finanzas</div>
+            <ul class="temario-bullets">
+              <li>Automatización de procesos repetitivos: facturación, reporting, análisis</li>
+              <li>IA para detección de riesgos, forecasting y análisis financiero</li>
+              <li>Identificar procesos en tu empresa con mayor potencial de automatización</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 08</div>
+            <div class="temario-title">IA en recursos humanos y gestión del talento</div>
+            <ul class="temario-bullets">
+              <li>Selección asistida por IA: sourcing, screening y entrevistas</li>
+              <li>Learning & Development personalizado con IA</li>
+              <li>El futuro del trabajo: roles que cambian, habilidades que se necesitan</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 09</div>
+            <div class="temario-title">Automatización sin código: Make, n8n y agentes simples</div>
+            <ul class="temario-bullets">
+              <li>Qué es la automatización de procesos y cómo empezar sin saber programar</li>
+              <li>Taller práctico: construir un flujo automatizado con Make o n8n</li>
+              <li>Integrar IA en procesos existentes de tu empresa</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 10</div>
+            <div class="temario-title">Ética, riesgos y regulación de la IA</div>
+            <ul class="temario-bullets">
+              <li>Sesgos algorítmicos y cómo mitigarlos en contextos empresariales</li>
+              <li>Marco regulatorio: EU AI Act y tendencias en LATAM/Argentina</li>
+              <li>Uso responsable: privacidad de datos, propiedad intelectual y gobernanza</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 11</div>
+            <div class="temario-title">Estrategia de IA para tu organización</div>
+            <ul class="temario-bullets">
+              <li>Cómo identificar y priorizar casos de uso de IA en tu empresa</li>
+              <li>El AI Business Canvas: de la idea al roadmap ejecutable</li>
+              <li>Quick wins vs. transformaciones estructurales: cómo secuenciar</li>
+            </ul>
+          </div>
+          <div class="temario-card temario-capstone">
+            <div class="temario-num">Sesión 12</div>
+            <div class="temario-title">Proyecto Final: presentación de tu Roadmap de IA</div>
+            <ul class="temario-bullets">
+              <li>Cada participante presenta su caso de uso real con roadmap y métricas</li>
+              <li>Feedback del panel de expertos ABN</li>
+              <li>Comunidad, recursos y acceso al programa Avanzado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- AVANZADO -->
+      <div class="temario-panel" id="panel-avanzado">
+        <div class="temario-grid">
+          <div class="temario-card">
+            <div class="temario-num">Sesión 01</div>
+            <div class="temario-title">De usuario a arquitecto: pensar en sistemas de IA</div>
+            <ul class="temario-bullets">
+              <li>Diferencia entre usar IA y diseñar sistemas con IA</li>
+              <li>Arquitecturas de IA empresarial: flujos, datos, modelos y outputs</li>
+              <li>Framework de evaluación: build vs. buy vs. partner</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 02</div>
+            <div class="temario-title">Data Strategy: el petróleo que alimenta tu IA</div>
+            <ul class="temario-bullets">
+              <li>Por qué los datos propios son la ventaja competitiva más importante</li>
+              <li>Auditoría de datos: calidad, estructura, accesibilidad y gobernanza</li>
+              <li>Cómo preparar tu organización para ser "AI-ready"</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 03</div>
+            <div class="temario-title">RAG: conectar la IA a los datos de tu empresa</div>
+            <ul class="temario-bullets">
+              <li>Qué es Retrieval-Augmented Generation y por qué cambia el juego</li>
+              <li>Casos de uso: knowledge bases internas, chatbots sobre documentación propia</li>
+              <li>Taller práctico: construir un RAG básico sin programar</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 04</div>
+            <div class="temario-title">Agentes de IA: la próxima frontera</div>
+            <ul class="temario-bullets">
+              <li>Qué son los agentes de IA y cómo funcionan (LLM + memoria + herramientas)</li>
+              <li>Casos de uso: agentes de ventas, soporte, análisis y ejecución</li>
+              <li>Taller: diseñar la arquitectura de un agente para un proceso real</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 05</div>
+            <div class="temario-title">Construir productos con IA: no-code y low-code</div>
+            <ul class="temario-bullets">
+              <li>Plataformas de desarrollo acelerado: Lovable, v0, Bolt, Cursor</li>
+              <li>Prototipado rápido: de idea a MVP funcional en días</li>
+              <li>Taller: construir una aplicación web con IA sin escribir código</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 06</div>
+            <div class="temario-title">ROI e impacto financiero de la IA</div>
+            <ul class="temario-bullets">
+              <li>Cómo calcular el retorno real de iniciativas de IA (con costos ocultos)</li>
+              <li>Business case structure: capex, opex, talento, mantenimiento</li>
+              <li>Construir un caso de negocio presentable al CFO o al directorio</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 07</div>
+            <div class="temario-title">Gobernanza, seguridad y IA responsable a nivel empresa</div>
+            <ul class="temario-bullets">
+              <li>Frameworks de gobernanza para IA empresarial: políticas, roles, accountability</li>
+              <li>Seguridad en IA: prompt injection, data leakage, vulnerabilidades</li>
+              <li>Diseñar una política de uso de IA para tu organización</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 08</div>
+            <div class="temario-title">ML para líderes: cómo evaluar propuestas técnicas</div>
+            <ul class="temario-bullets">
+              <li>Machine Learning sin matemáticas: lo que necesita saber un decisor</li>
+              <li>Las preguntas correctas para hacer a un equipo técnico o proveedor</li>
+              <li>Evaluar vendors de IA: los 5 criterios críticos antes de firmar</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 09</div>
+            <div class="temario-title">IA y transformación organizacional</div>
+            <ul class="temario-bullets">
+              <li>Change management en adopción de IA: resistencia, cultura y liderazgo</li>
+              <li>Rediseñar procesos con IA en el centro (BPR + AI)</li>
+              <li>Casos: empresas líderes en Argentina y LATAM que ya transformaron su operación</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 10</div>
+            <div class="temario-title">Nuevos modelos de negocio con IA</div>
+            <ul class="temario-bullets">
+              <li>Cómo la IA permite crear nuevas propuestas de valor y monetizar datos</li>
+              <li>Estrategias competitivas: diferenciación, plataformas y network effects</li>
+              <li>Identificar amenazas disruptivas en tu industria y anticiparlas</li>
+            </ul>
+          </div>
+          <div class="temario-card">
+            <div class="temario-num">Sesión 11</div>
+            <div class="temario-title">Vertical Deep Dive: IA en tu industria</div>
+            <ul class="temario-bullets">
+              <li>Casos de uso específicos por industria (retail, finanzas, salud, real estate, medios)</li>
+              <li>Benchmarking: qué están haciendo los líderes globales de tu sector</li>
+              <li>Diseñar la ventaja diferencial de tu empresa con IA</li>
+            </ul>
+          </div>
+          <div class="temario-card temario-capstone">
+            <div class="temario-num">Sesión 12</div>
+            <div class="temario-title">Demo Day: Shark Tank ABN</div>
+            <ul class="temario-bullets">
+              <li>10 minutos por participante: oportunidad + business case + prototipo + roadmap</li>
+              <li>Panel de inversores y expertos ABN — feedback real, no ceremonial</li>
+              <li>Certificación, comunidad ABN Alumni y red de contactos de la cohorte</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.temario-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.temario-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + tab).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 
   <!-- POR QUÉ ABN -->
   <section class="section">
@@ -926,7 +1256,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <img class="footer-logo" src="assets/abn-group-logo.png" alt="ABN Group" />
+    <img class="footer-logo" src="assets/abn-group-02.png" alt="ABN Group" />
     <span class="footer-text">© 2026 ABN Group · Buenos Aires, Argentina</span>
   </footer>
 
