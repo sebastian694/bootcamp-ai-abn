@@ -86,11 +86,13 @@
     .hero {
       background: var(--white);
       color: var(--dark);
-      padding: 100px 48px 80px;
+      padding: 72px 48px 80px;
       text-align: center;
       position: relative;
       overflow: hidden;
       border-bottom: 1.5px solid var(--border);
+      background-image: radial-gradient(circle, #dedad5 1px, transparent 1px);
+      background-size: 28px 28px;
     }
     .hero::before { display: none; }
     .hero-eyebrow {
@@ -115,15 +117,7 @@
       background: var(--teal);
       border-radius: 50%;
     }
-    .hero-isotipo {
-      position: absolute;
-      right: -60px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 420px;
-      opacity: 0.06;
-      pointer-events: none;
-    }
+    .hero-isotipo { display: none; }
     .hero-title {
       font-size: 72px;
       font-weight: 900;
@@ -218,6 +212,40 @@
       max-width: 560px;
     }
     .section.dark .section-sub { color: var(--gray-600); }
+
+    /* ── CLIENTS STRIP ── */
+    .clients-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding: 32px 0;
+      margin-bottom: 32px;
+    }
+    .client-logo-img {
+      height: 22px;
+      width: auto;
+      max-width: 120px;
+      filter: grayscale(1);
+      opacity: 0.5;
+      object-fit: contain;
+      transition: opacity 0.2s;
+    }
+    .client-logo-img:hover { opacity: 0.8; }
+
+    /* ── ICON BOX (sistema unificado) ── */
+    .icon-box {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: var(--dark);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
     /* ── PROBLEMA ── */
     .problem-grid {
@@ -375,17 +403,7 @@
       align-items: flex-start;
       background: var(--white);
     }
-    .why-bullet {
-      width: 36px;
-      height: 36px;
-      background: var(--dark);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
+    .why-bullet { /* alias de .icon-box, mantener por compatibilidad */ }
     .why-text-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
     .why-text-desc { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
 
@@ -404,7 +422,17 @@
       align-items: flex-start;
       background: var(--gray-100);
     }
-    .benefit-icon { font-size: 24px; flex-shrink: 0; }
+    .benefit-icon {
+      width: 36px;
+      min-width: 36px;
+      height: 36px;
+      background: var(--dark);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
     .benefit-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
     .benefit-desc { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
     .benefit-badge {
@@ -704,15 +732,15 @@
       <div class="eyebrow">Quiénes confían en ABN</div>
       <h2 class="section-title" style="margin-bottom:12px;">Lo que enseñamos, ya lo hicimos.</h2>
       <p class="section-sub">Hike implementa IA para líderes de LATAM en retail, banca, turismo y fintech. Los casos del Bootcamp son proyectos reales de estos clientes.</p>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px;">
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">Banco Galicia</div>
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">Despegar</div>
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">Falabella</div>
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">Sodimac</div>
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">Interbank</div>
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">DirecTV</div>
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">Assist Card</div>
-        <div style="padding:20px;background:white;border:1.5px solid var(--border);border-radius:12px;text-align:center;font-size:14px;font-weight:800;">AstroPay</div>
+      <div class="clients-strip">
+        <img class="client-logo-img" src="https://logo.clearbit.com/bancogalicia.com.ar" alt="Banco Galicia" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
+        <img class="client-logo-img" src="https://logo.clearbit.com/despegar.com" alt="Despegar" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
+        <img class="client-logo-img" src="https://logo.clearbit.com/falabella.com" alt="Falabella" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
+        <img class="client-logo-img" src="https://logo.clearbit.com/sodimac.com" alt="Sodimac" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
+        <img class="client-logo-img" src="https://logo.clearbit.com/interbank.pe" alt="Interbank" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
+        <img class="client-logo-img" src="https://logo.clearbit.com/directv.com" alt="DirecTV" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
+        <img class="client-logo-img" src="https://logo.clearbit.com/assist-card.com" alt="Assist Card" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
+        <img class="client-logo-img" src="https://logo.clearbit.com/astropay.com" alt="AstroPay" onerror="this.replaceWith(Object.assign(document.createElement('span'),{style:'font-size:13px;font-weight:800;color:#aaa;',textContent:this.alt}))" />
       </div>
       <!-- CASO REAL -->
       <div style="border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
@@ -1034,28 +1062,36 @@
       <p class="section-sub">El objetivo no es explicar qué es la tecnología — es desarrollar tu capacidad para identificar oportunidades en tus propios procesos y tomar decisiones informadas sobre adopción.</p>
       <div class="why-grid">
         <div class="why-item">
-          <div class="why-bullet">💼</div>
+          <div class="icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
           <div>
             <div class="why-text-title">Casos reales, no teoría</div>
             <p class="why-text-desc">Cada sesión usa ejemplos de proyectos implementados por ABN en clientes reales de distintas industrias.</p>
           </div>
         </div>
         <div class="why-item">
-          <div class="why-bullet">👥</div>
+          <div class="icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <div>
             <div class="why-text-title">Múltiples especialistas</div>
             <p class="why-text-desc">Cada módulo lo dicta el experto en esa área: creatividad, automatización, IA agéntica, estrategia.</p>
           </div>
         </div>
         <div class="why-item">
-          <div class="why-bullet">🎯</div>
+          <div class="icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
           <div>
             <div class="why-text-title">50% hands-on por sesión</div>
             <p class="why-text-desc">Salís de cada clase con algo funcionando, no con apuntes. La práctica es parte del programa.</p>
           </div>
         </div>
         <div class="why-item">
-          <div class="why-bullet">🔗</div>
+          <div class="icon-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <div>
             <div class="why-text-title">No termina el último día</div>
             <p class="why-text-desc">Comunidad activa, newsletter semanal y red de alumni con acceso permanente después del programa.</p>
@@ -1073,7 +1109,9 @@
       <p class="section-sub">Lo que hace que esto sea diferente a cualquier otra cosa que existe hoy en Argentina.</p>
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="benefit-icon">🎤</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Invitados de lujo</div>
             <p class="benefit-desc">Referentes del ecosistema tech y de negocios — como Sergio Bilinkis — que comparten su visión en sesiones exclusivas para el programa.</p>
@@ -1081,7 +1119,9 @@
           </div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🤝</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Evento de networking exclusivo</div>
             <p class="benefit-desc">Un evento presencial con todos los participantes, alumni de ABN y referentes del ecosistema. El lugar donde se hacen los negocios.</p>
@@ -1089,7 +1129,9 @@
           </div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">💬</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Comunidad privada de alumni</div>
             <p class="benefit-desc">Grupo cerrado con todos los que pasaron por el programa. Recursos, oportunidades y conexiones. Acceso permanente, para siempre.</p>
@@ -1097,7 +1139,9 @@
           </div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">📬</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Newsletter AI Intel semanal</div>
             <p class="benefit-desc">Las 5 novedades de IA más importantes de la semana, filtradas y explicadas por el equipo de ABN. Lo que realmente importa, sin ruido.</p>
@@ -1105,7 +1149,9 @@
           </div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🏆</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Certificado físico + badge LinkedIn</div>
             <p class="benefit-desc">Certificado impreso con firma, no un PDF. Más badge verificable para LinkedIn que acredita que completaste el programa.</p>
@@ -1113,7 +1159,9 @@
           </div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🗄️</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Vault de ABN</div>
             <p class="benefit-desc">Acceso al repositorio interno de ABN: prompts, templates, workflows y casos de uso que usamos con nuestros clientes. Se actualiza permanentemente.</p>
@@ -1121,7 +1169,9 @@
           </div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🎯</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Consultoría 1:1 con ABN (1 hora)</div>
             <p class="benefit-desc">Una sesión de una hora con el equipo de ABN aplicada específicamente a tu negocio. Si querés continuar después, lo cotizamos aparte. Valuada en USD 300.</p>
@@ -1129,7 +1179,9 @@
           </div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🌐</div>
+          <div class="benefit-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
           <div>
             <div class="benefit-title">Acceso a la red de clientes ABN</div>
             <p class="benefit-desc">En los eventos, compartís espacio con las empresas con las que ABN trabaja. Networking real con quienes ya están implementando IA.</p>
@@ -1147,7 +1199,7 @@
       <h2 class="section-title" style="margin-bottom: 28px;">Aprendé de quienes lo están haciendo</h2>
       <div class="guests-grid">
         <div class="guest-card">
-          <div class="guest-avatar">🎙</div>
+          <div class="guest-avatar" style="font-size:16px;font-weight:900;color:var(--dark);letter-spacing:-0.5px;">SB</div>
           <div class="guest-name">Sergio Bilinkis</div>
           <p class="guest-role">Emprendedor · Tecnología y futuro</p>
         </div>
@@ -1180,7 +1232,7 @@
         <div class="prog-card">
           <div class="prog-tag">Foundations</div>
           <div class="prog-name">AI Foundations</div>
-          <div class="prog-schedule">📅 Lunes 18:00 – 21:00</div>
+          <div class="prog-schedule">Lunes · 18:00 – 21:00</div>
           <p class="prog-desc">Para quien empieza. En 3 meses aplicás IA en tu trabajo con resultados concretos desde la primera sesión.</p>
           <div class="prog-price">USD 2.500</div>
           <div class="prog-early">Early bird: USD 1.800 · <span class="prog-early-orig">USD 2.500</span> · Primeros 15 lugares</div>
@@ -1201,7 +1253,7 @@
         <div class="prog-card featured">
           <div class="prog-tag">Advanced</div>
           <div class="prog-name">AI Advanced</div>
-          <div class="prog-schedule">📅 Miércoles 19:00 – 22:00</div>
+          <div class="prog-schedule">Miércoles · 19:00 – 22:00</div>
           <p class="prog-desc">Para quien ya usa IA. Implementás workflows reales, agentes y automatizaciones que transforman tu operación.</p>
           <div class="prog-price">USD 4.000</div>
           <div class="prog-early">Early bird: USD 3.000 · <span class="prog-early-orig">USD 4.000</span> · Primeros 15 lugares</div>
@@ -1222,7 +1274,7 @@
         <div class="prog-card">
           <div class="prog-tag">Empresarial</div>
           <div class="prog-name">Para empresas</div>
-          <div class="prog-schedule">📅 In-company · A medida</div>
+          <div class="prog-schedule">In-company · A medida</div>
           <p class="prog-desc">¿Querés entrenar a tu equipo? Diseñamos un programa cerrado para tu empresa, adaptado a tu industria.</p>
           <div class="prog-price" style="font-size:24px;letter-spacing:-0.5px;">Cotización a medida</div>
           <div class="prog-early" style="color:var(--gray-400);font-weight:400;">Workshops de un día o programas de 4 semanas in-company</div>
