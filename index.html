@@ -408,15 +408,9 @@
     .prog-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
     .prog-card.featured .prog-divider { border-color: var(--border); }
     .prog-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
-    .prog-features li { font-size: 13px; padding-left: 20px; position: relative; line-height: 1.4; }
-    .prog-card .prog-features li { color: #444; }
-    .prog-card.featured .prog-features li { color: #444; }
-    .prog-features li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; }
-    .prog-card .prog-features li::before { color: var(--dark); }
-    .prog-card.featured .prog-features li::before { color: var(--dark); }
-    .prog-features li.highlight { font-weight: 600; }
-    .prog-card .prog-features li.highlight { color: var(--dark); }
-    .prog-card.featured .prog-features li.highlight { color: var(--dark); }
+    .prog-features li { font-size: 13px; padding-left: 20px; position: relative; line-height: 1.4; color: #333; font-weight: 500; }
+    .prog-features li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: var(--dark); }
+    .prog-features li.highlight { font-weight: 700; color: var(--dark); }
     .prog-btn {
       display: block;
       text-align: center;
