@@ -619,14 +619,16 @@
     .prog-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
+      column-gap: 20px;
     }
     .prog-card {
       border: 1.5px solid var(--border);
       border-radius: 16px;
       padding: 22px 24px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 10;
+      align-content: start;
     }
     .prog-card.featured {
       background: var(--gray-100);
@@ -660,10 +662,10 @@
     .prog-early-orig { text-decoration: line-through; font-weight: 400; color: #bbb; }
     .prog-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
     .prog-card.featured .prog-divider { border-color: var(--border); }
-    .prog-features { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; flex: 1; }
-    .prog-features li { font-size: 12px; padding-left: 18px; position: relative; line-height: 1.4; color: #333; font-weight: 500; }
+    .prog-features { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 0; }
+    .prog-features li { font-size: 12px; padding-left: 18px; position: relative; line-height: 1.4; color: #333 !important; font-weight: 500; }
     .prog-features li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: var(--dark); }
-    .prog-features li.highlight { font-weight: 700; color: var(--dark); }
+    .prog-features li.highlight { font-weight: 700; color: var(--dark) !important; }
     .prog-btn {
       display: block;
       text-align: center;
