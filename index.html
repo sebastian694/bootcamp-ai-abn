@@ -309,6 +309,44 @@
       color: #ccc;
     }
 
+    /* ── VER CONTENIDO TOGGLE ── */
+    .ver-contenido-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      padding: 13px 28px;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      background: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ver-contenido-btn:hover {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+    .ver-contenido-btn .btn-arrow {
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+    .ver-contenido-btn.open .btn-arrow { transform: rotate(180deg); }
+    .contenido-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease;
+      margin-top: 0;
+    }
+    .contenido-panel.open {
+      max-height: 4000px;
+      margin-top: 48px;
+    }
+
     /* ── TEMARIO ── */
     .temario-tabs {
       display: flex;
@@ -766,54 +804,54 @@
     </div>
   </section>
 
-  <!-- HORARIOS -->
-  <section class="section gray">
+  <!-- PROGRAMA UNIFICADO -->
+  <section class="section gray" id="programa-detalle">
     <div class="container">
-      <div class="eyebrow">Formato y horarios</div>
-      <h2 class="section-title">Formato del programa</h2>
-      <p class="section-sub">Dos cohortes en paralelo, una vez por semana, 3 horas por sesión.</p>
+      <div class="eyebrow">El programa</div>
+      <h2 class="section-title">Dos programas.<br>Un solo objetivo.</h2>
+      <p class="section-sub">Presencial en las oficinas de ABN · Una vez por semana · 3 horas por sesión · Agosto → Octubre 2026</p>
       <div class="schedule-grid">
         <div class="schedule-card">
           <div class="schedule-header">
-            <div class="schedule-day">Lunes</div>
-            <div class="schedule-name">AI Foundations</div>
+            <div class="schedule-day">Lunes · AI Foundations</div>
             <div class="schedule-time">18:00 – 21:00</div>
           </div>
           <div class="schedule-body">
-            <div class="schedule-detail">3 horas por sesión · 50% práctica</div>
-            <div class="schedule-detail">1 vez por semana · 3 meses</div>
-            <div class="schedule-detail">Máx. 30 personas por cohorte</div>
-            <div class="schedule-detail">Agosto → Octubre 2026</div>
+            <div class="schedule-detail">Para quien empieza con IA</div>
+            <div class="schedule-detail">12 sesiones · 3hs · 50% práctica</div>
+            <div class="schedule-detail">Máx. 30 personas</div>
+            <div class="schedule-detail">USD 2.500 · Early bird USD 1.800</div>
           </div>
         </div>
         <div class="schedule-card">
           <div class="schedule-header">
-            <div class="schedule-day">Miércoles</div>
-            <div class="schedule-name">AI Advanced</div>
+            <div class="schedule-day">Miércoles · AI Advanced</div>
             <div class="schedule-time">19:00 – 22:00</div>
           </div>
           <div class="schedule-body">
-            <div class="schedule-detail">3 horas por sesión · 50% práctica</div>
-            <div class="schedule-detail">1 vez por semana · 3 meses</div>
-            <div class="schedule-detail">Máx. 30 personas por cohorte</div>
-            <div class="schedule-detail">Agosto → Octubre 2026</div>
+            <div class="schedule-detail">Para quien ya usa IA</div>
+            <div class="schedule-detail">12 sesiones · 3hs · 50% práctica</div>
+            <div class="schedule-detail">Máx. 30 personas</div>
+            <div class="schedule-detail">USD 4.000 · Early bird USD 3.000</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- TEMARIO -->
-  <section class="section" id="temario">
-    <div class="container">
-      <div class="eyebrow">Contenido del programa</div>
-      <h2 class="section-title">12 sesiones. Sin relleno.</h2>
-      <p class="section-sub">Cada clase está diseñada para que el lunes siguiente ya lo estés aplicando.</p>
-
-      <div class="temario-tabs">
-        <button class="temario-tab active" onclick="switchTab('basico')">AI Foundations</button>
-        <button class="temario-tab" onclick="switchTab('avanzado')">AI Advanced</button>
+      <div style="text-align:center;">
+        <button class="ver-contenido-btn" id="ver-contenido-btn" onclick="toggleContenido()">
+          Ver contenido de las 12 sesiones <span class="btn-arrow">↓</span>
+        </button>
       </div>
+
+      <div class="contenido-panel" id="contenido-panel">
+        <div class="eyebrow" style="margin-bottom:12px;">Contenido del programa</div>
+        <h3 style="font-size:28px;font-weight:900;letter-spacing:-0.5px;margin-bottom:8px;">12 sesiones. Sin relleno.</h3>
+        <p style="font-size:15px;color:var(--gray-600);margin-bottom:32px;">Cada clase está diseñada para que al día siguiente ya lo estés aplicando.</p>
+
+        <div class="temario-tabs">
+          <button class="temario-tab active" onclick="switchTab('basico', event)">AI Foundations</button>
+          <button class="temario-tab" onclick="switchTab('avanzado', event)">AI Advanced</button>
+        </div>
 
       <!-- BÁSICO -->
       <div class="temario-panel active" id="panel-basico">
@@ -1042,15 +1080,30 @@
           </div>
         </div>
       </div>
-    </div>
+      </div><!-- /contenido-panel -->
+    </div><!-- /container -->
   </section>
 
   <script>
-    function switchTab(tab) {
+    function switchTab(tab, e) {
       document.querySelectorAll('.temario-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.temario-panel').forEach(p => p.classList.remove('active'));
       document.getElementById('panel-' + tab).classList.add('active');
-      event.target.classList.add('active');
+      if (e) e.target.classList.add('active');
+    }
+    function toggleContenido() {
+      var panel = document.getElementById('contenido-panel');
+      var btn = document.getElementById('ver-contenido-btn');
+      var isOpen = panel.classList.contains('open');
+      panel.classList.toggle('open');
+      btn.classList.toggle('open');
+      btn.querySelector('.btn-arrow').textContent = isOpen ? '↓' : '↑';
+      btn.childNodes[0].textContent = isOpen ? 'Ver contenido de las 12 sesiones ' : 'Ocultar contenido ';
+      if (!isOpen) {
+        setTimeout(function() {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
     }
   </script>
 
