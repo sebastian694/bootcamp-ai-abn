@@ -625,6 +625,8 @@
       border: 1.5px solid var(--border);
       border-radius: 18px;
       padding: 32px;
+      display: flex;
+      flex-direction: column;
     }
     .prog-card.featured {
       background: var(--gray-100);
@@ -658,7 +660,7 @@
     .prog-early-orig { text-decoration: line-through; font-weight: 400; color: #bbb; }
     .prog-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
     .prog-card.featured .prog-divider { border-color: var(--border); }
-    .prog-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+    .prog-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; flex: 1; }
     .prog-features li { font-size: 13px; padding-left: 20px; position: relative; line-height: 1.4; color: #333; font-weight: 500; }
     .prog-features li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: var(--dark); }
     .prog-features li.highlight { font-weight: 700; color: var(--dark); }
@@ -799,8 +801,7 @@
       <span class="by">by ABN Group</span>
     </h1>
     <p class="hero-sub">
-      El único bootcamp de IA en Buenos Aires donde los que enseñan<br>
-      <strong>facturan resolviendo exactamente lo que vas a aprender.</strong>
+      <strong>El único bootcamp exclusivo y práctico de IA en Buenos Aires.</strong>
     </p>
     <div class="hero-actions">
       <a href="#contacto" class="btn-primary">Agendar llamada →</a>
@@ -912,8 +913,6 @@
             <div class="schedule-detail">12 sesiones · 3hs · 50% práctica</div>
             <div class="schedule-detail">Máx. 30 personas · Presencial ABN</div>
           </div>
-          <div class="schedule-price">USD 2.500</div>
-          <div class="schedule-early">Early bird USD 1.800 · Quedan 15 lugares</div>
           <div class="schedule-actions">
             <button class="schedule-btn-primary" onclick="abrirContenido('basico')">Ver contenido ↓</button>
             <a href="#contacto" class="schedule-btn-secondary">Agendar llamada</a>
@@ -929,8 +928,6 @@
             <div class="schedule-detail">12 sesiones · 3hs · 50% práctica</div>
             <div class="schedule-detail">Máx. 30 personas · Presencial ABN</div>
           </div>
-          <div class="schedule-price">USD 4.000</div>
-          <div class="schedule-early">Early bird USD 3.000 · Quedan 15 lugares</div>
           <div class="schedule-actions">
             <button class="schedule-btn-primary" onclick="abrirContenido('avanzado')">Ver contenido ↓</button>
             <a href="#contacto" class="schedule-btn-secondary">Agendar llamada</a>
@@ -1063,7 +1060,6 @@
     <div class="container">
       <div class="eyebrow">Beneficios exclusivos</div>
       <h2 class="section-title">Beneficios</h2>
-      <p class="section-sub">Porque pagar USD 2.500 por 12 clases sería caro. Esto es diferente.</p>
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-icon">
